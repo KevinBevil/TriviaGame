@@ -1,5 +1,18 @@
+@font-face {
+   font-family: 'wonka';
+   src: url('../fonts/WillyWonka.ttf');
+}
+
+h1 {
+   font-family: 'wonka', Fallback, sans-serif;
+   color: rgb(252, 255, 36);
+   text-shadow: -1px -1px 0 rgb(98,44,26), 4px -1px 0 rgb(0, 0, 0), -2px 1px 0 rgb(0, 0, 0), 2px 1px 0 rgb(98,44,26);
+}
+
 /* main quiz area */
+
 .container {
+   position: relative;
    width: 50%;
    max-width: 900px;
 }
@@ -11,4 +24,13 @@ body {
    background-position: center;
    background-repeat: repeat;
    background-size: cover;
+}
+
+img {
+   margin-top: 20px;
+   margin-bottom: 60px;
+   display: block;
+   margin-left: auto;
+   margin-right: auto;
+   width: 400px;
 }
