@@ -1,0 +1,14 @@
+/* main quiz area */
+.container {
+   width: 50%;
+   max-width: 900px;
+}
+
+body {
+   background-image: url("../images/wonkaBG.jpg");
+   height: 1000px;
+   /* Center and scale the image nicely */
+   background-position: center;
+   background-repeat: repeat;
+   background-size: cover;
+}
