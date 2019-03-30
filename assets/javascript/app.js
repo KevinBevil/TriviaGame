@@ -62,7 +62,9 @@ function displayQuiz() {
 
    for (var i = 0; i < questions.length; i++) {
       var aQuestion = questions[i].question;
-      quizDiv.append(aQuestion);
+      var questionDiv = $("<h6>");
+      quizDiv.append(questionDiv);
+      questionDiv.append(aQuestion);
 
       for (var j = 0; j < answerLength; j++) {
          // console.log(questions[i].answers[(letterString.charAt(j))]);
