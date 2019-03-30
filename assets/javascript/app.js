@@ -42,6 +42,36 @@ var questions = [
          b: "Bouquet",
          c: "Connick, Jr"
       },
+      correctAnswer: "a"
+   },
+   {
+      question: "An animated version was released in 2017 featuring what cartoon duo?",
+      answers: {
+         a: "Space Ghost and Dino Boy",
+         b: "Scooby Doo and Scrappy Doo",
+         c: "Tom and Jerry"
+      },
       correctAnswer: "c"
-   }, 
+   }
 ];
+var quizDiv = $(".quiz");
+var letterString = "abc";
+var answerLength = 3;
+function displayQuiz() {
+
+   for (var i = 0; i < questions.length; i++) {
+      var aQuestion = questions[i].question;
+      quizDiv.append(aQuestion);
+      for (var j = 0; j < answerLength; j++) {
+         // console.log(questions[i].answers[(letterString.charAt(j))]);
+         var answerDiv = $("<div class='custom-control custom-radio custom-control-inline'><input type='radio' id='customRadioInline1' name='customRadioInline1' class='custom-control-input'><label class='custom-control-label' for='customRadioInline1'>ggg</label></div>");
+         quizDiv.append(answerDiv);
+         answerDiv.text(questions[i].answers[(letterString.charAt(j))]);
+      }
+
+   }
+
+
+
+}
+displayQuiz();
