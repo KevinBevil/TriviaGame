@@ -57,21 +57,43 @@ var questions = [
 var quizDiv = $(".quiz");
 var letterString = "abc";
 var answerLength = 3;
+
 function displayQuiz() {
 
    for (var i = 0; i < questions.length; i++) {
       var aQuestion = questions[i].question;
       quizDiv.append(aQuestion);
+
       for (var j = 0; j < answerLength; j++) {
          // console.log(questions[i].answers[(letterString.charAt(j))]);
-         var answerDiv = $("<div class='custom-control custom-radio custom-control-inline'><input type='radio' id='customRadioInline1' name='customRadioInline1' class='custom-control-input'><label class='custom-control-label' for='customRadioInline1'>ggg</label></div>");
-         quizDiv.append(answerDiv);
-         answerDiv.text(questions[i].answers[(letterString.charAt(j))]);
+         var mainFormDiv = $("<form>");
+         quizDiv.append(mainFormDiv);
+
+         var formGroup = $("<div>");
+         formGroup.addClass("form-group");
+         formGroup.addClass("form-check");
+
+
+
+         var inputDiv = $("<input>");
+         inputDiv.attr("type", "checkbox");
+         inputDiv.addClass("form-check-input");
+         inputDiv.attr("id", "exampleCheck1");
+
+         var label = $("<label>");
+         label.addClass("form-check-label");
+         label.attr("for", "exampleCheck1");
+
+         mainFormDiv.append(formGroup);
+         formGroup.append(inputDiv);
+         formGroup.append(label);
+         // var answerDiv = $("<p>");
+
+
+
+         // label.append(answerDiv);
+         label.text(questions[i].answers[(letterString.charAt(j))]);
       }
-
    }
-
-
-
 }
 displayQuiz();

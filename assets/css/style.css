@@ -2,7 +2,10 @@
    font-family: 'wonka';
    src: url('../fonts/WillyWonka.ttf');
 }
-
+/* Undoes a troublesome position setting in Bootstrap */
+.form-check-input {
+   position: static;
+}
 h1 {
    font-family: 'wonka', Fallback, sans-serif;
    color: rgb(252, 255, 36);
