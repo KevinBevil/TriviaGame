@@ -103,12 +103,87 @@ generateQuiz();
 
 
 
-$(document).on("click", ".box", function() {
+$(document).on("click", ".box", function () {
    var name = $(this).attr("data-id");
+   // Director question ------------------------------------------------
    if (name === "Robert Altman") {
       $("[data-id='Mel Stuart']").prop('checked', false);
-      return;
+      $("[data-id='Sidney Lumet']").prop('checked', false);
    }
+   if (name === "Mel Stuart") {
+      $("[data-id='Sidney Lumet']").prop('checked', false);
+      $("[data-id='Robert Altman']").prop('checked', false);
+   }
+   if (name === "Sidney Lumet") {
+      $("[data-id='Robert Altman']").prop('checked', false);
+      $("[data-id='Mel Stuart']").prop('checked', false);
+   }
+   // Book question ------------------------------------------------
+   if (name === "James and the Giant Peach") {
+      $("[data-id='Matilda']").prop('checked', false);
+      $("[data-id='The Jungle Book']").prop('checked', false);
+   }
+   if (name === "Matilda") {
+      $("[data-id='The Jungle Book']").prop('checked', false);
+      $("[data-id='James and the Giant Peach']").prop('checked', false);
+   }
+   if (name === "The Jungle Book") {
+      $("[data-id='James and the Giant Peach']").prop('checked', false);
+      $("[data-id='Matilda']").prop('checked', false);
+   }
+   // Walkway question ------------------------------------------------
+   if (name === "James and the Giant Peach") {
+      $("[data-id='Matilda']").prop('checked', false);
+      $("[data-id='The Jungle Book']").prop('checked', false);
+   }
+   if (name === "Matilda") {
+      $("[data-id='The Jungle Book']").prop('checked', false);
+      $("[data-id='James and the Giant Peach']").prop('checked', false);
+   }
+   if (name === "The Jungle Book") {
+      $("[data-id='James and the Giant Peach']").prop('checked', false);
+      $("[data-id='Matilda']").prop('checked', false);
+   }
+   // Album question ------------------------------------------------
+   if (name === "Eminem") {
+      $("[data-id='Harry Connick, Jr']").prop('checked', false);
+      $("[data-id='James Blunt']").prop('checked', false);
+   }
+   if (name === "James Blunt") {
+      $("[data-id='Eminem']").prop('checked', false);
+      $("[data-id='Harry Connick, Jr']").prop('checked', false);
+   }
+   if (name === "Harry Connick, Jr") {
+      $("[data-id='James Blunt']").prop('checked', false);
+      $("[data-id='Eminem']").prop('checked', false);
+   }
+   // Last name question ------------------------------------------------
+   if (name === "Bucket") {
+      $("[data-id='Bouquet']").prop('checked', false);
+      $("[data-id='Connick, Jr']").prop('checked', false);
+   }
+   if (name === "Connick, Jr") {
+      $("[data-id='Bucket']").prop('checked', false);
+      $("[data-id='Bouquet']").prop('checked', false);
+   }
+   if (name === "Bouquet") {
+      $("[data-id='Connick, Jr']").prop('checked', false);
+      $("[data-id='Bucket']").prop('checked', false);
+   }
+   // Cartoon duo question ------------------------------------------------
+   if (name === "Space Ghost and Dino Boy") {
+      $("[data-id='Scooby Doo and Scrappy Doo']").prop('checked', false);
+      $("[data-id='Tom and Jerry']").prop('checked', false);
+   }
+   if (name === "Tom and Jerry") {
+      $("[data-id='Space Ghost and Dino Boy']").prop('checked', false);
+      $("[data-id='Scooby Doo and Scrappy Doo']").prop('checked', false);
+   }
+   if (name === "Scooby Doo and Scrappy Doo") {
+      $("[data-id='Tom and Jerry']").prop('checked', false);
+      $("[data-id='Space Ghost and Dino Boy']").prop('checked', false);
+   }
+
 
 
 });
