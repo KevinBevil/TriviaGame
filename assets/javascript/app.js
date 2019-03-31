@@ -55,12 +55,15 @@ var questions = [
    }
 ];
 var quizDiv = $(".quiz");
+
+// a string created so the loop can iterate through the letters of the questions
 var letterString = "abc";
 var answerLength = 3;
+var questionArrLength = questions.length;
 
-function displayQuiz() {
+function generateQuiz() {
 
-   for (var i = 0; i < questions.length; i++) {
+   for (var i = 0; i < questionArrLength; i++) {
       var aQuestion = questions[i].question;
       var questionDiv = $("<h6>");
       quizDiv.append(questionDiv);
@@ -75,9 +78,9 @@ function displayQuiz() {
          formGroup.addClass("form-group");
          formGroup.addClass("form-check");
 
-
-
          var inputDiv = $("<input>");
+         inputDiv.addClass("box");
+         inputDiv.attr("data-id", questions[i].answers[(letterString.charAt(j))]);
          inputDiv.attr("type", "checkbox");
          inputDiv.addClass("form-check-input");
          inputDiv.attr("id", "exampleCheck1");
@@ -89,13 +92,23 @@ function displayQuiz() {
          mainFormDiv.append(formGroup);
          formGroup.append(inputDiv);
          formGroup.append(label);
-         // var answerDiv = $("<p>");
 
-
-
-         // label.append(answerDiv);
          label.text(questions[i].answers[(letterString.charAt(j))]);
       }
    }
 }
-displayQuiz();
+generateQuiz();
+
+
+
+
+
+$(document).on("click", ".box", function() {
+   var name = $(this).attr("data-id");
+   if (name === "Robert Altman") {
+      $("[data-id='Mel Stuart']").prop('checked', false);
+      return;
+   }
+
+
+});
