@@ -55,7 +55,8 @@ var questions = [
    }
 ];
 var quizDiv = $(".quiz");
-
+var totalTime = 25;
+var intervalId;
 // a string created so the loop can iterate through the letters of the questions
 var letterString = "abc";
 var answerLength = 3;
@@ -102,7 +103,8 @@ generateQuiz();
 
 
 
-
+// This listener makes sure only one answer is chosen for each question
+// This had to be done in leiu of using bootstrap's radio buttons
 $(document).on("click", ".box", function () {
    var name = $(this).attr("data-id");
    // Director question ------------------------------------------------
@@ -183,7 +185,33 @@ $(document).on("click", ".box", function () {
       $("[data-id='Tom and Jerry']").prop('checked', false);
       $("[data-id='Space Ghost and Dino Boy']").prop('checked', false);
    }
-
-
-
 });
+
+
+window.onload = (runClock());
+
+function runClock() {
+   clearInterval(intervalId);
+   intervalId = setInterval(decrement, 1000);
+}
+
+//  The decrement function.
+function decrement() {
+
+   //  Decrease total time by one
+   totalTime--;
+
+   //  Show the number in the #show-number tag.
+   $(".timer").html("Time Left: " + totalTime);
+
+
+   //  Once number hits zero...
+   if (totalTime === 0) {
+
+      //  ...run the stop function.
+      stop();
+
+      //  Alert the user that time is up.
+      alert("Time Up!");
+   }
+}
