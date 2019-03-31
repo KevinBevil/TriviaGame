@@ -29,13 +29,16 @@ h6 {
 .timer {
    background-color: rgba(247, 248, 204, 0.637);
    font-size: 18px;
+   width: 150px;
 }
 
 .custom-control {
    display: block;
 }
 /* main quiz area */
-
+strong {
+   color: rgb(255, 42, 42);
+}
 .container {
    position: relative;
    width: 50%;
@@ -48,7 +51,7 @@ h6 {
    /* background-color: #FDFF81; */
    background: linear-gradient(to bottom right, rgba(253, 255, 129, 0.87), rgb(252, 255, 82), rgba(251, 255, 43, 0.781));
    min-width: 300px;
-   border: 5px solid #622c1a;
+   border: 9px solid #622c1a;
 
 }
 
@@ -63,10 +66,11 @@ body {
 }
 
 img {
+   border: 5px solid black;
    margin-top: 20px;
-   margin-bottom: 60px;
+   margin-bottom: 30px;
    display: block;
    margin-left: auto;
    margin-right: auto;
-   width: 400px;
+   width: 500px;
 }

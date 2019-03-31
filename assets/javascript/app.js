@@ -20,8 +20,8 @@ var questions = [
    {
       question: "In the 1971 movie, what gets stuck in the stones in the walkway when Wonka is first introduced?",
       answers: {
-         a: "Wonka's cane",
-         b: "Veruca's snozzberry",
+         a: "Wonka's Cane",
+         b: "Veruca's Snozzberry",
          c: "Granpa Joe's robe"
       },
       correctAnswer: "a"
@@ -55,7 +55,7 @@ var questions = [
    }
 ];
 var quizDiv = $(".quiz");
-var totalTime = 25;
+var totalTime = 45;
 var intervalId;
 // a string created so the loop can iterate through the letters of the questions
 var letterString = "abc";
@@ -197,21 +197,18 @@ function runClock() {
 
 //  The decrement function.
 function decrement() {
-
+   if (totalTime <= 0){return}
    //  Decrease total time by one
    totalTime--;
 
    //  Show the number in the #show-number tag.
-   $(".timer").html("Time Left: " + totalTime);
+   $(".timer").html("Time Left: <strong>" + totalTime + "</strong>");
 
 
-   //  Once number hits zero...
+   //  Out of time...
    if (totalTime === 0) {
 
-      //  ...run the stop function.
-      stop();
 
-      //  Alert the user that time is up.
-      alert("Time Up!");
+
    }
 }
