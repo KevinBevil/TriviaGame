@@ -1,3 +1,5 @@
+
+
 var questions = [
    {
       question: "Who directed the 1971 version?",
@@ -55,7 +57,7 @@ var questions = [
    }
 ];
 var quizDiv = $(".quiz");
-var totalTime = 5;
+var totalTime = 45;
 var intervalId;
 var correctAnswers = 0;
 // a string created so the loop can iterate through the letters of the questions
@@ -98,15 +100,15 @@ function generateQuiz() {
       }
    }
 }
+
+// quiz is generated and added to the DOM
 generateQuiz();
-
-
-
 
 // This listener makes sure only one answer is chosen for each question
 // This had to be done in leiu of using bootstrap's radio buttons
 $(document).on("click", ".box", function () {
    var name = $(this).attr("data-id");
+
    // Director question ------------------------------------------------
    if (name === "Robert Altman") {
       $("[data-id='Mel Stuart']").prop('checked', false);
@@ -120,6 +122,7 @@ $(document).on("click", ".box", function () {
       $("[data-id='Robert Altman']").prop('checked', false);
       $("[data-id='Mel Stuart']").prop('checked', false);
    }
+
    // Book question ------------------------------------------------
    if (name === "James and the Giant Peach") {
       $("[data-id='Matilda']").prop('checked', false);
@@ -133,6 +136,7 @@ $(document).on("click", ".box", function () {
       $("[data-id='James and the Giant Peach']").prop('checked', false);
       $("[data-id='Matilda']").prop('checked', false);
    }
+
    // Walkway question ------------------------------------------------
    if (name === "Wonka\\'s Cane") {
       $("[data-id='Veruca's Snozzberry']").prop('checked', false);
@@ -146,6 +150,7 @@ $(document).on("click", ".box", function () {
       $("[data-id='Granpa Joe's robe']").prop('checked', false);
       $("[data-id='Wonka\\'s Cane']").prop('checked', false);
    }
+
    // Album question ------------------------------------------------
    if (name === "Eminem") {
       $("[data-id='Harry Connick, Jr']").prop('checked', false);
@@ -159,6 +164,7 @@ $(document).on("click", ".box", function () {
       $("[data-id='James Blunt']").prop('checked', false);
       $("[data-id='Eminem']").prop('checked', false);
    }
+
    // Last name question ------------------------------------------------
    if (name === "Bucket") {
       $("[data-id='Bouquet']").prop('checked', false);
@@ -172,6 +178,7 @@ $(document).on("click", ".box", function () {
       $("[data-id='Connick, Jr']").prop('checked', false);
       $("[data-id='Bucket']").prop('checked', false);
    }
+
    // Cartoon duo question ------------------------------------------------
    if (name === "Space Ghost and Dino Boy") {
       $("[data-id='Scooby Doo and Scrappy Doo']").prop('checked', false);
@@ -190,19 +197,58 @@ $(document).on("click", ".box", function () {
 
 window.onload = (runClock());
 
+// when "done" button is clicked
+$(".btn-lg").on("click", done);
+
+function done() {
+   // grades game and puts score in the DOM
+   if ($("[data-id='Mel Stuart']").is(':checked')) {
+      correctAnswers++;
+   }
+   if ($("[data-id='The Jungle Book']").is(':checked')) {
+      correctAnswers++;
+   }
+   if ($("[data-id='Wonka\\'s Cane']").is(':checked')) {
+      correctAnswers++;
+   }
+   if ($("[data-id='Harry Connick, Jr']").is(':checked')) {
+      correctAnswers++;
+   }
+   if ($("[data-id='Bucket']").is(':checked')) {
+      correctAnswers++;
+   }
+   if ($("[data-id='Tom and Jerry']").is(':checked')) {
+      correctAnswers++;
+   }
+   console.log("Correct Answers: " + correctAnswers);
+   console.log("Incorrect Answers: " + (6 - correctAnswers));
+
+   // removes quiz and done button
+   $(".main-area").empty();
+   $(".done-button").empty();
+   // presents scores
+   $(".main-area").append("<h2>Correct Answers: <strong>" + correctAnswers + "</strong><h2>");
+   $(".main-area").append("<h2>Incorrect Answers: <strong>" + (6 - correctAnswers) + "</strong><h2>");
+   clearInterval(intervalId);
+   // var newButton = $("<a class='btn btn-primary' href='#' role='button'>Play Again</a>");
+   $(".reload-button").append("<a class='btn btn-primary' href='quiz.html' role='button'>Play Again</a>");
+   
+}
+
 function runClock() {
    clearInterval(intervalId);
    intervalId = setInterval(decrement, 1000);
 }
 
+
 //  The decrement function.
 function decrement() {
    if (totalTime <= 0) {
-
+      // grades game and puts score in the DOM
       if ($("[data-id='Mel Stuart']").is(':checked')) {
          correctAnswers++;
       }
-      if ($("[data-id='Jungle Book']").is(':checked')) {
+      if ($("[data-id='The Jungle Book']").is(':checked')) {
          correctAnswers++;
       }
       if ($("[data-id='Wonka\\'s Cane']").is(':checked')) {
@@ -220,7 +266,9 @@ function decrement() {
       console.log("Correct Answers: " + correctAnswers);
       console.log("Incorrect Answers: " + (6 - correctAnswers));
       $(".main-area").empty();
-      $("a").empty();
+      $(".done-button").empty();
+      $(".main-area").append("<h2>Correct Answers: <strong>" + correctAnswers + "</strong><h2>");
+      $(".main-area").append("<h2>Incorrect Answers: <strong>" + (6 - correctAnswers) + "</strong><h2>");
       clearInterval(intervalId);
 
       return
