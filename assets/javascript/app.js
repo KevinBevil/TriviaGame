@@ -1,4 +1,4 @@
-
+// Javascript file which contains quiz game information and all dynamic functionality
 
 var questions = [
    {
@@ -230,9 +230,8 @@ function done() {
    $(".main-area").append("<h2>Correct Answers: <strong>" + correctAnswers + "</strong><h2>");
    $(".main-area").append("<h2>Incorrect Answers: <strong>" + (6 - correctAnswers) + "</strong><h2>");
    clearInterval(intervalId);
-   // var newButton = $("<a class='btn btn-primary' href='#' role='button'>Play Again</a>");
    $(".reload-button").append("<a class='btn btn-primary' href='quiz.html' role='button'>Play Again</a>");
-   
+
 }
 
 function runClock() {
@@ -244,44 +243,14 @@ function runClock() {
 //  The decrement function.
 function decrement() {
    if (totalTime <= 0) {
-      // grades game and puts score in the DOM
-      if ($("[data-id='Mel Stuart']").is(':checked')) {
-         correctAnswers++;
-      }
-      if ($("[data-id='The Jungle Book']").is(':checked')) {
-         correctAnswers++;
-      }
-      if ($("[data-id='Wonka\\'s Cane']").is(':checked')) {
-         correctAnswers++;
-      }
-      if ($("[data-id='Harry Connick, Jr']").is(':checked')) {
-         correctAnswers++;
-      }
-      if ($("[data-id='Bucket']").is(':checked')) {
-         correctAnswers++;
-      }
-      if ($("[data-id='Tom and Jerry']").is(':checked')) {
-         correctAnswers++;
-      }
-      console.log("Correct Answers: " + correctAnswers);
-      console.log("Incorrect Answers: " + (6 - correctAnswers));
-      $(".main-area").empty();
-      $(".done-button").empty();
-      $(".main-area").append("<h2>Correct Answers: <strong>" + correctAnswers + "</strong><h2>");
-      $(".main-area").append("<h2>Incorrect Answers: <strong>" + (6 - correctAnswers) + "</strong><h2>");
-      clearInterval(intervalId);
 
-      return
+      // grading and resetting game function, same as when "done" button is pushed
+      done();
    }
+
    //  Decrease total time by one
    totalTime--;
 
    //  Show the number in the #show-number tag.
    $(".timer").html("Time Left: <strong>" + totalTime + "</strong>");
-
-
-   //  Out of time...
-   if (totalTime === 0) {
-
-   }
 }
