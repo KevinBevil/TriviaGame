@@ -138,16 +138,16 @@ $(document).on("click", ".box", function () {
    }
 
    // Walkway question ------------------------------------------------
-   if (name === "Wonka\\'s Cane") {
-      $("[data-id='Veruca's Snozzberry']").prop('checked', false);
-      $("[data-id='Granpa Joe's robe']").prop('checked', false);
+   if (name === "Wonka's Cane") {
+      $("[data-id='Veruca\\'s Snozzberry']").prop('checked', false);
+      $("[data-id='Granpa Joe\\'s robe']").prop('checked', false);
    }
    if (name === "Granpa Joe's robe") {
       $("[data-id='Wonka\\'s Cane']").prop('checked', false);
-      $("[data-id='Veruca's Snozzberry']").prop('checked', false);
+      $("[data-id='Veruca\\'s Snozzberry']").prop('checked', false);
    }
    if (name === "Veruca's Snozzberry") {
-      $("[data-id='Granpa Joe's robe']").prop('checked', false);
+      $("[data-id='Granpa Joe\\'s robe']").prop('checked', false);
       $("[data-id='Wonka\\'s Cane']").prop('checked', false);
    }
 
