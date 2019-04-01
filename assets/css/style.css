@@ -2,30 +2,34 @@
    font-family: 'wonka';
    src: url('../fonts/WillyWonka.ttf');
 }
+
 /* Undoes a troublesome position setting in Bootstrap */
+
 .form-check-input {
    position: static;
    margin-right: 20px;
 }
+
 h1 {
    font-family: 'wonka', Fallback, sans-serif;
    color: rgb(252, 255, 36);
-   text-shadow: -1px -1px 0 rgb(98,44,26), 4px -1px 0 rgb(0, 0, 0), -2px 1px 0 rgb(0, 0, 0), 2px 1px 0 rgb(98,44,26);
+   text-shadow: -1px -1px 0 rgb(98, 44, 26), 4px -1px 0 rgb(0, 0, 0), -2px 1px 0 rgb(0, 0, 0), 2px 1px 0 rgb(98, 44, 26);
    font-weight: 700;
 }
+
 h5 {
    color: rgb(66, 66, 66);
    font-weight: 100;
    margin-bottom: 40px;
-
 }
+
 h6 {
    font-size: 17px;
    margin-bottom: 25px;
    margin-top: 25px;
    font-weight: 700;
-
 }
+
 .timer {
    background-color: rgba(247, 248, 204, 0.637);
    font-size: 18px;
@@ -35,15 +39,18 @@ h6 {
 .custom-control {
    display: block;
 }
+
 /* main quiz area */
+
 strong {
    color: rgb(255, 42, 42);
 }
+
 .container {
    position: relative;
    width: 50%;
    max-width: 900px;
-   min-width: 350px;
+   min-width: 370px;
 }
 
 .main-area {
@@ -52,7 +59,6 @@ strong {
    background: linear-gradient(to bottom right, rgba(253, 255, 129, 0.87), rgb(252, 255, 82), rgba(251, 255, 43, 0.781));
    min-width: 300px;
    border: 9px solid #622c1a;
-
 }
 
 body {
@@ -62,7 +68,6 @@ body {
    background-position: center;
    background-repeat: repeat;
    background-size: cover;
-   
 }
 
 img {

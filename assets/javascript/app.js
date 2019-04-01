@@ -55,8 +55,9 @@ var questions = [
    }
 ];
 var quizDiv = $(".quiz");
-var totalTime = 45;
+var totalTime = 5;
 var intervalId;
+var correctAnswers = 0;
 // a string created so the loop can iterate through the letters of the questions
 var letterString = "abc";
 var answerLength = 3;
@@ -71,7 +72,6 @@ function generateQuiz() {
       questionDiv.append(aQuestion);
 
       for (var j = 0; j < answerLength; j++) {
-         // console.log(questions[i].answers[(letterString.charAt(j))]);
          var mainFormDiv = $("<form>");
          quizDiv.append(mainFormDiv);
 
@@ -134,17 +134,17 @@ $(document).on("click", ".box", function () {
       $("[data-id='Matilda']").prop('checked', false);
    }
    // Walkway question ------------------------------------------------
-   if (name === "James and the Giant Peach") {
-      $("[data-id='Matilda']").prop('checked', false);
-      $("[data-id='The Jungle Book']").prop('checked', false);
+   if (name === "Wonka\\'s Cane") {
+      $("[data-id='Veruca's Snozzberry']").prop('checked', false);
+      $("[data-id='Granpa Joe's robe']").prop('checked', false);
    }
-   if (name === "Matilda") {
-      $("[data-id='The Jungle Book']").prop('checked', false);
-      $("[data-id='James and the Giant Peach']").prop('checked', false);
+   if (name === "Granpa Joe's robe") {
+      $("[data-id='Wonka\\'s Cane']").prop('checked', false);
+      $("[data-id='Veruca's Snozzberry']").prop('checked', false);
    }
-   if (name === "The Jungle Book") {
-      $("[data-id='James and the Giant Peach']").prop('checked', false);
-      $("[data-id='Matilda']").prop('checked', false);
+   if (name === "Veruca's Snozzberry") {
+      $("[data-id='Granpa Joe's robe']").prop('checked', false);
+      $("[data-id='Wonka\\'s Cane']").prop('checked', false);
    }
    // Album question ------------------------------------------------
    if (name === "Eminem") {
@@ -197,7 +197,34 @@ function runClock() {
 
 //  The decrement function.
 function decrement() {
-   if (totalTime <= 0){return}
+   if (totalTime <= 0) {
+
+      if ($("[data-id='Mel Stuart']").is(':checked')) {
+         correctAnswers++;
+      }
+      if ($("[data-id='Jungle Book']").is(':checked')) {
+         correctAnswers++;
+      }
+      if ($("[data-id='Wonka\\'s Cane']").is(':checked')) {
+         correctAnswers++;
+      }
+      if ($("[data-id='Harry Connick, Jr']").is(':checked')) {
+         correctAnswers++;
+      }
+      if ($("[data-id='Bucket']").is(':checked')) {
+         correctAnswers++;
+      }
+      if ($("[data-id='Tom and Jerry']").is(':checked')) {
+         correctAnswers++;
+      }
+      console.log("Correct Answers: " + correctAnswers);
+      console.log("Incorrect Answers: " + (6 - correctAnswers));
+      $(".main-area").empty();
+      $("a").empty();
+      clearInterval(intervalId);
+
+      return
+   }
    //  Decrease total time by one
    totalTime--;
 
@@ -207,8 +234,6 @@ function decrement() {
 
    //  Out of time...
    if (totalTime === 0) {
-
-
 
    }
 }
